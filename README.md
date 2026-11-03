@@ -23,8 +23,8 @@
 
 | Role | Name | Enrollment No. | GitHub Username |
 |------|------|----------------|-----------------|
-| Group Lead | Shreyansh Mishra | 2501010438 | Shreyansh34710 |
-| Member 2 | Irfan Rahaman | 2501010190 | rahamanirfan905-netizen |
+| Group Lead | Irfan Rahaman | 2501010190 | rahamanirfan905-netizen |
+| Member 2 | Shreyansh Mishra | 2501010438| Shreyansh34710 |
 | Member 3 | Jatin Ahlawat | 2501010202 | jatinahlawat86077 |
 | Member 4 | Prithwiraj Mitra | 2501010615 | Prithwiraj-source |
 
