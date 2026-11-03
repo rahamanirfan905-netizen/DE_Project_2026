@@ -1,0 +1,27 @@
+{
+  "team_number": "T0087",
+  "group_lead": {
+    "name": "Shreyansh Mishra",
+    "enrollment_no": "2501010438",
+    "github": "Shreyansh34710"
+  },
+  "members": [
+    {
+      "name": "Irfan Rahaman",
+      "enrollment_no": "2501010190",
+      "github": "rahamanirfan905-netizen"
+    },
+    {
+      "name": "Jatin Ahlawat",
+      "enrollment_no": "2501010202",
+      "github": "jatinahlawat86077"
+    },
+    {
+      "name": "Prithwiraj Mitra",
+      "enrollment_no": "2501010615",
+      "github": "Prithwiraj-source"
+    }
+  ],
+  "postgres_version": "",
+  "laptop_used_for_benchmarks": ""
+}

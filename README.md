@@ -20,12 +20,14 @@
 
 ## Team details (fill in before you start)
 
+
 | Role | Name | Enrollment No. | GitHub Username |
 |------|------|----------------|-----------------|
-| Group Lead | | | |
-| Member 2 | | | |
-| Member 3 | | | |
-| Member 4 | | | |
+| Group Lead | Shreyansh Mishra | 2501010438 | Shreyansh34710 |
+| Member 2 | Irfan Rahaman | 2501010190 | rahamanirfan905-netizen |
+| Member 3 | Jatin Ahlawat | 2501010202 | jatinahlawat86077 |
+| Member 4 | Prithwiraj Mitra | 2501010615 | Prithwiraj-source |
+
 
 **Team No.:** ____ · **Section:** ____ · **Repository URL:** ____
 
