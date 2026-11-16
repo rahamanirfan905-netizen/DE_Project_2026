@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="520" viewBox="0 0 1600 1040">
+  <style>text{font-family:Arial,sans-serif;fill:#172033}.t{font-size:19px;font-weight:bold}.c{font-size:15px}.box{fill:#f7f9fc;stroke:#1f5b99;stroke-width:2}.line{stroke:#526f91;stroke-width:2;fill:none}.label{font-size:14px;fill:#315475}</style>
+  <text x="40" y="38" class="t" style="font-size:27px">Netflix Streaming Database — ER Diagram</text>
+  <g class="box"><rect x="55" y="100" width="240" height="140" rx="8"/><rect x="55" y="315" width="240" height="165" rx="8"/><rect x="55" y="570" width="240" height="110" rx="8"/><rect x="55" y="800" width="240" height="105" rx="8"/></g>
+  <g class="box"><rect x="500" y="100" width="280" height="180" rx="8"/><rect x="500" y="400" width="280" height="150" rx="8"/><rect x="500" y="680" width="280" height="155" rx="8"/></g>
+  <g class="box"><rect x="1050" y="100" width="300" height="175" rx="8"/><rect x="1050" y="390" width="300" height="120" rx="8"/><rect x="1050" y="620" width="300" height="160" rx="8"/><rect x="1050" y="870" width="300" height="100" rx="8"/></g>
+  <g><text x="70" y="130" class="t">PLANS</text><text x="70" y="160" class="c">PK plan_id · plan_name</text><text x="70" y="185" class="c">monthly_price_inr · max_streams</text><text x="70" y="210" class="c">max_resolution · has_ads</text>
+  <text x="70" y="345" class="t">ACCOUNTS</text><text x="70" y="375" class="c">PK account_id · FK plan_id</text><text x="70" y="400" class="c">email, phone, country_code</text><text x="70" y="425" class="c">status, billing dates</text>
+  <text x="70" y="600" class="t">PROFILES</text><text x="70" y="630" class="c">PK profile_id · FK account_id</text><text x="70" y="655" class="c">name · kids · maturity · language</text>
+  <text x="70" y="830" class="t">INVOICES</text><text x="70" y="860" class="c">PK invoice_id · FK account_id</text><text x="70" y="885" class="c">amount, status, paid_at</text>
+  <text x="515" y="130" class="t">TITLES</text><text x="515" y="160" class="c">PK title_id · title_type · name</text><text x="515" y="185" class="c">year · maturity · language · runtime</text><text x="515" y="210" class="c">original · added_on · leaving_on</text>
+  <text x="515" y="430" class="t">EPISODES</text><text x="515" y="460" class="c">PK episode_id · FK title_id</text><text x="515" y="485" class="c">season/episode no · title · runtime/date</text>
+  <text x="515" y="710" class="t">TITLE_GENRES</text><text x="515" y="740" class="c">PK/FK title_id</text><text x="515" y="765" class="c">PK/FK genre_id</text>
+  <text x="1065" y="130" class="t">VIEWING_ACTIVITY</text><text x="1065" y="160" class="c">PK view_id · FK profile_id, title_id</text><text x="1065" y="185" class="c">FK (episode_id, title_id)</text><text x="1065" y="210" class="c">started_at, duration, device, completed</text>
+  <text x="1065" y="420" class="t">RATINGS</text><text x="1065" y="450" class="c">PK/FK profile_id, title_id</text><text x="1065" y="475" class="c">rating, rated_at</text>
+  <text x="1065" y="650" class="t">MY_LIST</text><text x="1065" y="680" class="c">PK/FK profile_id, title_id</text><text x="1065" y="705" class="c">added_at</text>
+  <text x="1065" y="900" class="t">GENRES</text><text x="1065" y="930" class="c">PK genre_id · genre_name</text></g>
+  <g class="line"><path d="M175 240V315"/><path d="M175 480V570"/><path d="M295 390H500"/><path d="M295 850V480"/><path d="M780 190H1050"/><path d="M780 475H1050"/><path d="M780 755H1050"/><path d="M295 625H1050"/><path d="M1210 275V390"/><path d="M1210 510V620"/><path d="M780 755H1050V920"/></g>
+  <g class="label"><text x="186" y="278">1:N</text><text x="186" y="530">1:N</text><text x="385" y="380">N:1</text><text x="306" y="650">1:N</text><text x="900" y="178">1:N</text><text x="900" y="462">1:N</text><text x="900" y="742">M:N via junction</text><text x="920" y="610">1:N</text></g>
+</svg>

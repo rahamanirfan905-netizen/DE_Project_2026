@@ -29,7 +29,7 @@
 | Member 4 | Prithwiraj Mitra | 2501010615 | Prithwiraj-source |
 
 
-**Team No.:** ____ · **Section:** ____ · **Repository URL:** ____
+**Team No.:** Briefly · **Section:** E · **Repository URL:** https://github.com/rahamanirfan905-netizen/DE_Project_2026
 
 ---
 
