@@ -1,0 +1,99 @@
+=== R04 run 1 ===
+Limit  (cost=198.49..198.59 rows=40 width=36) (actual time=1.570..1.577 rows=40.00 loops=1)
+  Buffers: shared hit=68
+  ->  Sort  (cost=198.49..198.89 rows=159 width=36) (actual time=1.569..1.572 rows=40.00 loops=1)
+        Sort Key: t.added_on DESC
+        Sort Method: top-N heapsort  Memory: 29kB
+        Buffers: shared hit=68
+        ->  Hash Join  (cost=112.89..193.46 rows=159 width=36) (actual time=0.881..1.525 rows=107.00 loops=1)
+              Hash Cond: (t.title_id = tg.title_id)
+              Buffers: shared hit=65
+              ->  Seq Scan on titles t  (cost=0.00..74.50 rows=1197 width=36) (actual time=0.010..0.543 rows=1197.00 loops=1)
+                    Filter: ((maturity_rating)::text = ANY ('{U,UA7}'::text[]))
+                    Rows Removed by Filter: 1803
+                    Buffers: shared hit=37
+              ->  Hash  (cost=107.91..107.91 rows=398 width=4) (actual time=0.864..0.865 rows=356.00 loops=1)
+                    Buckets: 1024  Batches: 1  Memory Usage: 21kB
+                    Buffers: shared hit=28
+                    ->  Hash Join  (cost=1.20..107.91 rows=398 width=4) (actual time=0.051..0.829 rows=356.00 loops=1)
+                          Hash Cond: (tg.genre_id = g.genre_id)
+                          Buffers: shared hit=28
+                          ->  Seq Scan on title_genres tg  (cost=0.00..86.63 rows=5963 width=8) (actual time=0.006..0.373 rows=5963.00 loops=1)
+                                Buffers: shared hit=27
+                          ->  Hash  (cost=1.19..1.19 rows=1 width=4) (actual time=0.026..0.026 rows=1.00 loops=1)
+                                Buckets: 1024  Batches: 1  Memory Usage: 9kB
+                                Buffers: shared hit=1
+                                ->  Seq Scan on genres g  (cost=0.00..1.19 rows=1 width=4) (actual time=0.006..0.008 rows=1.00 loops=1)
+                                      Filter: ((genre_name)::text = 'Comedy'::text)
+                                      Rows Removed by Filter: 14
+                                      Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=326
+Planning Time: 1.289 ms
+Execution Time: 1.622 ms
+=== R04 run 2 ===
+Limit  (cost=198.49..198.59 rows=40 width=36) (actual time=1.460..1.465 rows=40.00 loops=1)
+  Buffers: shared hit=68
+  ->  Sort  (cost=198.49..198.89 rows=159 width=36) (actual time=1.459..1.461 rows=40.00 loops=1)
+        Sort Key: t.added_on DESC
+        Sort Method: top-N heapsort  Memory: 29kB
+        Buffers: shared hit=68
+        ->  Hash Join  (cost=112.89..193.46 rows=159 width=36) (actual time=0.823..1.419 rows=107.00 loops=1)
+              Hash Cond: (t.title_id = tg.title_id)
+              Buffers: shared hit=65
+              ->  Seq Scan on titles t  (cost=0.00..74.50 rows=1197 width=36) (actual time=0.009..0.530 rows=1197.00 loops=1)
+                    Filter: ((maturity_rating)::text = ANY ('{U,UA7}'::text[]))
+                    Rows Removed by Filter: 1803
+                    Buffers: shared hit=37
+              ->  Hash  (cost=107.91..107.91 rows=398 width=4) (actual time=0.807..0.808 rows=356.00 loops=1)
+                    Buckets: 1024  Batches: 1  Memory Usage: 21kB
+                    Buffers: shared hit=28
+                    ->  Hash Join  (cost=1.20..107.91 rows=398 width=4) (actual time=0.030..0.774 rows=356.00 loops=1)
+                          Hash Cond: (tg.genre_id = g.genre_id)
+                          Buffers: shared hit=28
+                          ->  Seq Scan on title_genres tg  (cost=0.00..86.63 rows=5963 width=8) (actual time=0.006..0.377 rows=5963.00 loops=1)
+                                Buffers: shared hit=27
+                          ->  Hash  (cost=1.19..1.19 rows=1 width=4) (actual time=0.012..0.012 rows=1.00 loops=1)
+                                Buckets: 1024  Batches: 1  Memory Usage: 9kB
+                                Buffers: shared hit=1
+                                ->  Seq Scan on genres g  (cost=0.00..1.19 rows=1 width=4) (actual time=0.005..0.006 rows=1.00 loops=1)
+                                      Filter: ((genre_name)::text = 'Comedy'::text)
+                                      Rows Removed by Filter: 14
+                                      Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=326
+Planning Time: 1.095 ms
+Execution Time: 1.506 ms
+=== R04 run 3 ===
+Limit  (cost=198.49..198.59 rows=40 width=36) (actual time=1.479..1.485 rows=40.00 loops=1)
+  Buffers: shared hit=68
+  ->  Sort  (cost=198.49..198.89 rows=159 width=36) (actual time=1.478..1.481 rows=40.00 loops=1)
+        Sort Key: t.added_on DESC
+        Sort Method: top-N heapsort  Memory: 29kB
+        Buffers: shared hit=68
+        ->  Hash Join  (cost=112.89..193.46 rows=159 width=36) (actual time=0.847..1.436 rows=107.00 loops=1)
+              Hash Cond: (t.title_id = tg.title_id)
+              Buffers: shared hit=65
+              ->  Seq Scan on titles t  (cost=0.00..74.50 rows=1197 width=36) (actual time=0.009..0.513 rows=1197.00 loops=1)
+                    Filter: ((maturity_rating)::text = ANY ('{U,UA7}'::text[]))
+                    Rows Removed by Filter: 1803
+                    Buffers: shared hit=37
+              ->  Hash  (cost=107.91..107.91 rows=398 width=4) (actual time=0.827..0.828 rows=356.00 loops=1)
+                    Buckets: 1024  Batches: 1  Memory Usage: 21kB
+                    Buffers: shared hit=28
+                    ->  Hash Join  (cost=1.20..107.91 rows=398 width=4) (actual time=0.027..0.793 rows=356.00 loops=1)
+                          Hash Cond: (tg.genre_id = g.genre_id)
+                          Buffers: shared hit=28
+                          ->  Seq Scan on title_genres tg  (cost=0.00..86.63 rows=5963 width=8) (actual time=0.006..0.370 rows=5963.00 loops=1)
+                                Buffers: shared hit=27
+                          ->  Hash  (cost=1.19..1.19 rows=1 width=4) (actual time=0.012..0.012 rows=1.00 loops=1)
+                                Buckets: 1024  Batches: 1  Memory Usage: 9kB
+                                Buffers: shared hit=1
+                                ->  Seq Scan on genres g  (cost=0.00..1.19 rows=1 width=4) (actual time=0.004..0.006 rows=1.00 loops=1)
+                                      Filter: ((genre_name)::text = 'Comedy'::text)
+                                      Rows Removed by Filter: 14
+                                      Buffers: shared hit=1
+Planning:
+  Buffers: shared hit=326
+Planning Time: 1.276 ms
+Execution Time: 1.530 ms
