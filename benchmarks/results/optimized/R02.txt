@@ -1,55 +1,55 @@
 === R02 run 1 ===
-GroupAggregate  (cost=0.29..38.53 rows=4 width=14) (actual time=0.769..0.775 rows=2 loops=1)
+GroupAggregate  (cost=0.29..38.53 rows=4 width=14) (actual time=0.675..0.759 rows=2 loops=1)
   Group Key: season_no
-  Buffers: shared hit=4
-  ->  Index Scan using uq_episode_number on episodes  (cost=0.29..38.35 rows=18 width=6) (actual time=0.760..0.766 rows=13 loops=1)
+  Buffers: shared read=4
+  ->  Index Scan using uq_episode_number on episodes  (cost=0.29..38.35 rows=18 width=6) (actual time=0.276..0.359 rows=13 loops=1)
         Index Cond: (title_id = 2909)
-        Buffers: shared hit=4
+        Buffers: shared read=4
 Planning:
-  Buffers: shared hit=110
-Planning Time: 0.207 ms
-Execution Time: 0.795 ms
+  Buffers: shared hit=103 read=7
+Planning Time: 0.645 ms
+Execution Time: 0.783 ms
 === R02 run 2 ===
-GroupAggregate  (cost=0.29..38.53 rows=4 width=14) (actual time=0.013..0.016 rows=2 loops=1)
+GroupAggregate  (cost=0.29..38.53 rows=4 width=14) (actual time=0.009..0.011 rows=2 loops=1)
   Group Key: season_no
   Buffers: shared hit=4
-  ->  Index Scan using uq_episode_number on episodes  (cost=0.29..38.35 rows=18 width=6) (actual time=0.007..0.008 rows=13 loops=1)
+  ->  Index Scan using uq_episode_number on episodes  (cost=0.29..38.35 rows=18 width=6) (actual time=0.004..0.005 rows=13 loops=1)
         Index Cond: (title_id = 2909)
         Buffers: shared hit=4
 Planning:
   Buffers: shared hit=110
-Planning Time: 0.178 ms
-Execution Time: 0.038 ms
+Planning Time: 0.173 ms
+Execution Time: 0.031 ms
 === R02 run 3 ===
-GroupAggregate  (cost=0.29..38.53 rows=4 width=14) (actual time=0.012..0.015 rows=2 loops=1)
+GroupAggregate  (cost=0.29..38.53 rows=4 width=14) (actual time=0.010..0.012 rows=2 loops=1)
   Group Key: season_no
   Buffers: shared hit=4
-  ->  Index Scan using uq_episode_number on episodes  (cost=0.29..38.35 rows=18 width=6) (actual time=0.006..0.008 rows=13 loops=1)
+  ->  Index Scan using uq_episode_number on episodes  (cost=0.29..38.35 rows=18 width=6) (actual time=0.004..0.005 rows=13 loops=1)
         Index Cond: (title_id = 2909)
         Buffers: shared hit=4
 Planning:
   Buffers: shared hit=110
-Planning Time: 0.158 ms
-Execution Time: 0.034 ms
+Planning Time: 0.161 ms
+Execution Time: 0.032 ms
 === R02 run 4 ===
-GroupAggregate  (cost=0.29..38.53 rows=4 width=14) (actual time=0.012..0.014 rows=2 loops=1)
+GroupAggregate  (cost=0.29..38.53 rows=4 width=14) (actual time=0.010..0.013 rows=2 loops=1)
   Group Key: season_no
   Buffers: shared hit=4
-  ->  Index Scan using uq_episode_number on episodes  (cost=0.29..38.35 rows=18 width=6) (actual time=0.006..0.007 rows=13 loops=1)
+  ->  Index Scan using uq_episode_number on episodes  (cost=0.29..38.35 rows=18 width=6) (actual time=0.004..0.005 rows=13 loops=1)
         Index Cond: (title_id = 2909)
         Buffers: shared hit=4
 Planning:
   Buffers: shared hit=110
-Planning Time: 0.180 ms
-Execution Time: 0.035 ms
+Planning Time: 0.155 ms
+Execution Time: 0.031 ms
 === R02 run 5 ===
-GroupAggregate  (cost=0.29..38.53 rows=4 width=14) (actual time=0.014..0.018 rows=2 loops=1)
+GroupAggregate  (cost=0.29..38.53 rows=4 width=14) (actual time=0.011..0.013 rows=2 loops=1)
   Group Key: season_no
   Buffers: shared hit=4
-  ->  Index Scan using uq_episode_number on episodes  (cost=0.29..38.35 rows=18 width=6) (actual time=0.007..0.009 rows=13 loops=1)
+  ->  Index Scan using uq_episode_number on episodes  (cost=0.29..38.35 rows=18 width=6) (actual time=0.005..0.006 rows=13 loops=1)
         Index Cond: (title_id = 2909)
         Buffers: shared hit=4
 Planning:
   Buffers: shared hit=110
-Planning Time: 0.156 ms
-Execution Time: 0.037 ms
+Planning Time: 0.173 ms
+Execution Time: 0.036 ms

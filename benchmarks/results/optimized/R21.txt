@@ -1,65 +1,65 @@
 === R21 run 1 ===
-Sort  (cost=776.86..776.92 rows=25 width=34) (actual time=1.263..1.275 rows=739 loops=1)
+Sort  (cost=691.49..691.55 rows=22 width=34) (actual time=1.215..1.228 rows=739 loops=1)
   Sort Key: next_billing_date
   Sort Method: quicksort  Memory: 70kB
-  Buffers: shared hit=358
-  ->  Seq Scan on accounts  (cost=0.00..776.27 rows=25 width=34) (actual time=0.004..1.224 rows=739 loops=1)
+  Buffers: shared hit=319
+  ->  Seq Scan on accounts  (cost=0.00..691.00 rows=22 width=34) (actual time=0.005..1.172 rows=739 loops=1)
         Filter: ((next_billing_date < '2026-07-01'::date) AND ((status)::text = 'ON_HOLD'::text))
         Rows Removed by Filter: 24261
-        Buffers: shared hit=355
+        Buffers: shared hit=316
 Planning:
   Buffers: shared hit=124
-Planning Time: 0.227 ms
-Execution Time: 1.300 ms
+Planning Time: 0.247 ms
+Execution Time: 1.255 ms
 === R21 run 2 ===
-Sort  (cost=776.86..776.92 rows=25 width=34) (actual time=1.278..1.291 rows=739 loops=1)
+Sort  (cost=691.49..691.55 rows=22 width=34) (actual time=1.238..1.251 rows=739 loops=1)
   Sort Key: next_billing_date
   Sort Method: quicksort  Memory: 70kB
-  Buffers: shared hit=358
-  ->  Seq Scan on accounts  (cost=0.00..776.27 rows=25 width=34) (actual time=0.005..1.237 rows=739 loops=1)
+  Buffers: shared hit=319
+  ->  Seq Scan on accounts  (cost=0.00..691.00 rows=22 width=34) (actual time=0.004..1.196 rows=739 loops=1)
         Filter: ((next_billing_date < '2026-07-01'::date) AND ((status)::text = 'ON_HOLD'::text))
         Rows Removed by Filter: 24261
-        Buffers: shared hit=355
-Planning:
-  Buffers: shared hit=124
-Planning Time: 0.201 ms
-Execution Time: 1.315 ms
-=== R21 run 3 ===
-Sort  (cost=776.86..776.92 rows=25 width=34) (actual time=1.301..1.314 rows=739 loops=1)
-  Sort Key: next_billing_date
-  Sort Method: quicksort  Memory: 70kB
-  Buffers: shared hit=358
-  ->  Seq Scan on accounts  (cost=0.00..776.27 rows=25 width=34) (actual time=0.004..1.261 rows=739 loops=1)
-        Filter: ((next_billing_date < '2026-07-01'::date) AND ((status)::text = 'ON_HOLD'::text))
-        Rows Removed by Filter: 24261
-        Buffers: shared hit=355
-Planning:
-  Buffers: shared hit=124
-Planning Time: 0.193 ms
-Execution Time: 1.338 ms
-=== R21 run 4 ===
-Sort  (cost=776.86..776.92 rows=25 width=34) (actual time=1.410..1.423 rows=739 loops=1)
-  Sort Key: next_billing_date
-  Sort Method: quicksort  Memory: 70kB
-  Buffers: shared hit=358
-  ->  Seq Scan on accounts  (cost=0.00..776.27 rows=25 width=34) (actual time=0.005..1.367 rows=739 loops=1)
-        Filter: ((next_billing_date < '2026-07-01'::date) AND ((status)::text = 'ON_HOLD'::text))
-        Rows Removed by Filter: 24261
-        Buffers: shared hit=355
+        Buffers: shared hit=316
 Planning:
   Buffers: shared hit=124
 Planning Time: 0.206 ms
-Execution Time: 1.448 ms
-=== R21 run 5 ===
-Sort  (cost=776.86..776.92 rows=25 width=34) (actual time=1.330..1.343 rows=739 loops=1)
+Execution Time: 1.276 ms
+=== R21 run 3 ===
+Sort  (cost=691.49..691.55 rows=22 width=34) (actual time=1.271..1.287 rows=739 loops=1)
   Sort Key: next_billing_date
   Sort Method: quicksort  Memory: 70kB
-  Buffers: shared hit=358
-  ->  Seq Scan on accounts  (cost=0.00..776.27 rows=25 width=34) (actual time=0.004..1.289 rows=739 loops=1)
+  Buffers: shared hit=319
+  ->  Seq Scan on accounts  (cost=0.00..691.00 rows=22 width=34) (actual time=0.004..1.224 rows=739 loops=1)
         Filter: ((next_billing_date < '2026-07-01'::date) AND ((status)::text = 'ON_HOLD'::text))
         Rows Removed by Filter: 24261
-        Buffers: shared hit=355
+        Buffers: shared hit=316
 Planning:
   Buffers: shared hit=124
-Planning Time: 0.202 ms
-Execution Time: 1.367 ms
+Planning Time: 0.179 ms
+Execution Time: 1.313 ms
+=== R21 run 4 ===
+Sort  (cost=691.49..691.55 rows=22 width=34) (actual time=1.277..1.291 rows=739 loops=1)
+  Sort Key: next_billing_date
+  Sort Method: quicksort  Memory: 70kB
+  Buffers: shared hit=319
+  ->  Seq Scan on accounts  (cost=0.00..691.00 rows=22 width=34) (actual time=0.004..1.233 rows=739 loops=1)
+        Filter: ((next_billing_date < '2026-07-01'::date) AND ((status)::text = 'ON_HOLD'::text))
+        Rows Removed by Filter: 24261
+        Buffers: shared hit=316
+Planning:
+  Buffers: shared hit=124
+Planning Time: 0.223 ms
+Execution Time: 1.318 ms
+=== R21 run 5 ===
+Sort  (cost=691.49..691.55 rows=22 width=34) (actual time=1.198..1.211 rows=739 loops=1)
+  Sort Key: next_billing_date
+  Sort Method: quicksort  Memory: 70kB
+  Buffers: shared hit=319
+  ->  Seq Scan on accounts  (cost=0.00..691.00 rows=22 width=34) (actual time=0.004..1.157 rows=739 loops=1)
+        Filter: ((next_billing_date < '2026-07-01'::date) AND ((status)::text = 'ON_HOLD'::text))
+        Rows Removed by Filter: 24261
+        Buffers: shared hit=316
+Planning:
+  Buffers: shared hit=124
+Planning Time: 0.224 ms
+Execution Time: 1.237 ms

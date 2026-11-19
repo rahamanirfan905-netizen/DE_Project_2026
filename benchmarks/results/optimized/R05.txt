@@ -1,52 +1,67 @@
 === R05 run 1 ===
-Limit  (cost=80.76..80.84 rows=30 width=37) (actual time=0.440..0.443 rows=30 loops=1)
+Limit  (cost=80.76..80.84 rows=30 width=37) (actual time=0.415..0.417 rows=30 loops=1)
   Buffers: shared hit=40
-  ->  Sort  (cost=80.76..81.29 rows=212 width=37) (actual time=0.440..0.440 rows=30 loops=1)
+  ->  Sort  (cost=80.76..81.29 rows=212 width=37) (actual time=0.414..0.415 rows=30 loops=1)
         Sort Key: release_year DESC
         Sort Method: top-N heapsort  Memory: 28kB
         Buffers: shared hit=40
-        ->  Seq Scan on titles  (cost=0.00..74.50 rows=212 width=37) (actual time=0.004..0.420 rows=188 loops=1)
+        ->  Seq Scan on titles  (cost=0.00..74.50 rows=212 width=37) (actual time=0.003..0.396 rows=188 loops=1)
               Filter: ((name)::text ~~* '%love%'::text)
               Rows Removed by Filter: 2812
               Buffers: shared hit=37
 Planning:
   Buffers: shared hit=78
-Planning Time: 0.488 ms
-Execution Time: 0.452 ms
+Planning Time: 0.276 ms
+Execution Time: 0.427 ms
 === R05 run 2 ===
-Limit  (cost=80.76..80.84 rows=30 width=37) (actual time=0.491..0.494 rows=30 loops=1)
+Limit  (cost=80.76..80.84 rows=30 width=37) (actual time=0.423..0.425 rows=30 loops=1)
   Buffers: shared hit=40
-  ->  Sort  (cost=80.76..81.29 rows=212 width=37) (actual time=0.490..0.491 rows=30 loops=1)
+  ->  Sort  (cost=80.76..81.29 rows=212 width=37) (actual time=0.423..0.423 rows=30 loops=1)
         Sort Key: release_year DESC
         Sort Method: top-N heapsort  Memory: 28kB
         Buffers: shared hit=40
-        ->  Seq Scan on titles  (cost=0.00..74.50 rows=212 width=37) (actual time=0.004..0.467 rows=188 loops=1)
+        ->  Seq Scan on titles  (cost=0.00..74.50 rows=212 width=37) (actual time=0.003..0.404 rows=188 loops=1)
               Filter: ((name)::text ~~* '%love%'::text)
               Rows Removed by Filter: 2812
               Buffers: shared hit=37
 Planning:
   Buffers: shared hit=78
-Planning Time: 0.194 ms
-Execution Time: 0.505 ms
+Planning Time: 0.147 ms
+Execution Time: 0.434 ms
 === R05 run 3 ===
-Limit  (cost=80.76..80.84 rows=30 width=37) (actual time=0.479..0.482 rows=30 loops=1)
+Limit  (cost=80.76..80.84 rows=30 width=37) (actual time=0.414..0.416 rows=30 loops=1)
   Buffers: shared hit=40
-  ->  Sort  (cost=80.76..81.29 rows=212 width=37) (actual time=0.478..0.479 rows=30 loops=1)
+  ->  Sort  (cost=80.76..81.29 rows=212 width=37) (actual time=0.414..0.414 rows=30 loops=1)
         Sort Key: release_year DESC
         Sort Method: top-N heapsort  Memory: 28kB
         Buffers: shared hit=40
-        ->  Seq Scan on titles  (cost=0.00..74.50 rows=212 width=37) (actual time=0.004..0.456 rows=188 loops=1)
+        ->  Seq Scan on titles  (cost=0.00..74.50 rows=212 width=37) (actual time=0.003..0.395 rows=188 loops=1)
               Filter: ((name)::text ~~* '%love%'::text)
               Rows Removed by Filter: 2812
               Buffers: shared hit=37
 Planning:
   Buffers: shared hit=78
-Planning Time: 0.181 ms
-Execution Time: 0.493 ms
+Planning Time: 0.147 ms
+Execution Time: 0.425 ms
 === R05 run 4 ===
-Limit  (cost=80.76..80.84 rows=30 width=37) (actual time=0.409..0.411 rows=30 loops=1)
+Limit  (cost=80.76..80.84 rows=30 width=37) (actual time=0.421..0.423 rows=30 loops=1)
   Buffers: shared hit=40
-  ->  Sort  (cost=80.76..81.29 rows=212 width=37) (actual time=0.408..0.409 rows=30 loops=1)
+  ->  Sort  (cost=80.76..81.29 rows=212 width=37) (actual time=0.420..0.421 rows=30 loops=1)
+        Sort Key: release_year DESC
+        Sort Method: top-N heapsort  Memory: 28kB
+        Buffers: shared hit=40
+        ->  Seq Scan on titles  (cost=0.00..74.50 rows=212 width=37) (actual time=0.003..0.402 rows=188 loops=1)
+              Filter: ((name)::text ~~* '%love%'::text)
+              Rows Removed by Filter: 2812
+              Buffers: shared hit=37
+Planning:
+  Buffers: shared hit=78
+Planning Time: 0.146 ms
+Execution Time: 0.432 ms
+=== R05 run 5 ===
+Limit  (cost=80.76..80.84 rows=30 width=37) (actual time=0.409..0.412 rows=30 loops=1)
+  Buffers: shared hit=40
+  ->  Sort  (cost=80.76..81.29 rows=212 width=37) (actual time=0.409..0.410 rows=30 loops=1)
         Sort Key: release_year DESC
         Sort Method: top-N heapsort  Memory: 28kB
         Buffers: shared hit=40
@@ -56,20 +71,5 @@ Limit  (cost=80.76..80.84 rows=30 width=37) (actual time=0.409..0.411 rows=30 lo
               Buffers: shared hit=37
 Planning:
   Buffers: shared hit=78
-Planning Time: 0.167 ms
-Execution Time: 0.420 ms
-=== R05 run 5 ===
-Limit  (cost=80.76..80.84 rows=30 width=37) (actual time=0.409..0.411 rows=30 loops=1)
-  Buffers: shared hit=40
-  ->  Sort  (cost=80.76..81.29 rows=212 width=37) (actual time=0.409..0.409 rows=30 loops=1)
-        Sort Key: release_year DESC
-        Sort Method: top-N heapsort  Memory: 28kB
-        Buffers: shared hit=40
-        ->  Seq Scan on titles  (cost=0.00..74.50 rows=212 width=37) (actual time=0.003..0.389 rows=188 loops=1)
-              Filter: ((name)::text ~~* '%love%'::text)
-              Rows Removed by Filter: 2812
-              Buffers: shared hit=37
-Planning:
-  Buffers: shared hit=78
-Planning Time: 0.162 ms
-Execution Time: 0.420 ms
+Planning Time: 0.142 ms
+Execution Time: 0.421 ms

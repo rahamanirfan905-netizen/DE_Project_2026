@@ -1,70 +1,65 @@
 === R13 run 1 ===
-Nested Loop Anti Join  (cost=0.58..59.24 rows=7 width=8) (actual time=0.046..0.049 rows=8 loops=1)
-  Buffers: shared hit=66
-  ->  Index Scan using uq_episode_number on episodes e  (cost=0.29..38.35 rows=18 width=8) (actual time=0.008..0.009 rows=31 loops=1)
-        Index Cond: (title_id = 2523)
-        Buffers: shared hit=3
-  ->  Index Only Scan using viewing_episode_present_idx on viewing_activity v  (cost=0.29..5.10 rows=8 width=4) (actual time=0.001..0.001 rows=1 loops=31)
-        Index Cond: (episode_id = e.episode_id)
-        Heap Fetches: 0
-        Buffers: shared hit=63
+Index Scan using uq_episode_number on episodes e  (cost=4241.30..4279.41 rows=9 width=8) (actual time=23.707..23.711 rows=0 loops=1)
+  Index Cond: (title_id = 2523)
+  Filter: (NOT (hashed SubPlan 1))
+  Rows Removed by Filter: 31
+  Buffers: shared hit=1737 read=2
+  SubPlan 1
+    ->  Seq Scan on viewing_activity v  (cost=0.00..3740.01 rows=200401 width=4) (actual time=0.008..8.487 rows=200401 loops=1)
+          Buffers: shared hit=1736
 Planning:
-  Buffers: shared hit=294
-Planning Time: 0.406 ms
-Execution Time: 0.068 ms
+  Buffers: shared hit=168
+Planning Time: 0.404 ms
+Execution Time: 23.745 ms
 === R13 run 2 ===
-Nested Loop Anti Join  (cost=0.58..59.24 rows=7 width=8) (actual time=0.033..0.036 rows=8 loops=1)
-  Buffers: shared hit=66
-  ->  Index Scan using uq_episode_number on episodes e  (cost=0.29..38.35 rows=18 width=8) (actual time=0.005..0.006 rows=31 loops=1)
-        Index Cond: (title_id = 2523)
-        Buffers: shared hit=3
-  ->  Index Only Scan using viewing_episode_present_idx on viewing_activity v  (cost=0.29..5.10 rows=8 width=4) (actual time=0.001..0.001 rows=1 loops=31)
-        Index Cond: (episode_id = e.episode_id)
-        Heap Fetches: 0
-        Buffers: shared hit=63
+Index Scan using uq_episode_number on episodes e  (cost=4241.30..4279.41 rows=9 width=8) (actual time=19.005..19.008 rows=0 loops=1)
+  Index Cond: (title_id = 2523)
+  Filter: (NOT (hashed SubPlan 1))
+  Rows Removed by Filter: 31
+  Buffers: shared hit=1739
+  SubPlan 1
+    ->  Seq Scan on viewing_activity v  (cost=0.00..3740.01 rows=200401 width=4) (actual time=0.012..7.612 rows=200401 loops=1)
+          Buffers: shared hit=1736
 Planning:
-  Buffers: shared hit=294
-Planning Time: 0.385 ms
-Execution Time: 0.054 ms
+  Buffers: shared hit=168
+Planning Time: 0.410 ms
+Execution Time: 19.048 ms
 === R13 run 3 ===
-Nested Loop Anti Join  (cost=0.58..59.24 rows=7 width=8) (actual time=0.035..0.038 rows=8 loops=1)
-  Buffers: shared hit=66
-  ->  Index Scan using uq_episode_number on episodes e  (cost=0.29..38.35 rows=18 width=8) (actual time=0.005..0.006 rows=31 loops=1)
-        Index Cond: (title_id = 2523)
-        Buffers: shared hit=3
-  ->  Index Only Scan using viewing_episode_present_idx on viewing_activity v  (cost=0.29..5.10 rows=8 width=4) (actual time=0.001..0.001 rows=1 loops=31)
-        Index Cond: (episode_id = e.episode_id)
-        Heap Fetches: 0
-        Buffers: shared hit=63
+Index Scan using uq_episode_number on episodes e  (cost=4241.30..4279.41 rows=9 width=8) (actual time=18.939..18.944 rows=0 loops=1)
+  Index Cond: (title_id = 2523)
+  Filter: (NOT (hashed SubPlan 1))
+  Rows Removed by Filter: 31
+  Buffers: shared hit=1739
+  SubPlan 1
+    ->  Seq Scan on viewing_activity v  (cost=0.00..3740.01 rows=200401 width=4) (actual time=0.003..7.547 rows=200401 loops=1)
+          Buffers: shared hit=1736
 Planning:
-  Buffers: shared hit=294
-Planning Time: 0.382 ms
-Execution Time: 0.057 ms
+  Buffers: shared hit=168
+Planning Time: 0.314 ms
+Execution Time: 18.983 ms
 === R13 run 4 ===
-Nested Loop Anti Join  (cost=0.58..59.24 rows=7 width=8) (actual time=0.036..0.041 rows=8 loops=1)
-  Buffers: shared hit=66
-  ->  Index Scan using uq_episode_number on episodes e  (cost=0.29..38.35 rows=18 width=8) (actual time=0.005..0.006 rows=31 loops=1)
-        Index Cond: (title_id = 2523)
-        Buffers: shared hit=3
-  ->  Index Only Scan using viewing_episode_present_idx on viewing_activity v  (cost=0.29..5.10 rows=8 width=4) (actual time=0.001..0.001 rows=1 loops=31)
-        Index Cond: (episode_id = e.episode_id)
-        Heap Fetches: 0
-        Buffers: shared hit=63
+Index Scan using uq_episode_number on episodes e  (cost=4241.30..4279.41 rows=9 width=8) (actual time=19.133..19.135 rows=0 loops=1)
+  Index Cond: (title_id = 2523)
+  Filter: (NOT (hashed SubPlan 1))
+  Rows Removed by Filter: 31
+  Buffers: shared hit=1739
+  SubPlan 1
+    ->  Seq Scan on viewing_activity v  (cost=0.00..3740.01 rows=200401 width=4) (actual time=0.005..7.840 rows=200401 loops=1)
+          Buffers: shared hit=1736
 Planning:
-  Buffers: shared hit=294
-Planning Time: 0.394 ms
-Execution Time: 0.059 ms
+  Buffers: shared hit=168
+Planning Time: 0.285 ms
+Execution Time: 19.166 ms
 === R13 run 5 ===
-Nested Loop Anti Join  (cost=0.58..59.24 rows=7 width=8) (actual time=0.036..0.039 rows=8 loops=1)
-  Buffers: shared hit=66
-  ->  Index Scan using uq_episode_number on episodes e  (cost=0.29..38.35 rows=18 width=8) (actual time=0.006..0.007 rows=31 loops=1)
-        Index Cond: (title_id = 2523)
-        Buffers: shared hit=3
-  ->  Index Only Scan using viewing_episode_present_idx on viewing_activity v  (cost=0.29..5.10 rows=8 width=4) (actual time=0.001..0.001 rows=1 loops=31)
-        Index Cond: (episode_id = e.episode_id)
-        Heap Fetches: 0
-        Buffers: shared hit=63
+Index Scan using uq_episode_number on episodes e  (cost=4241.30..4279.41 rows=9 width=8) (actual time=19.929..19.932 rows=0 loops=1)
+  Index Cond: (title_id = 2523)
+  Filter: (NOT (hashed SubPlan 1))
+  Rows Removed by Filter: 31
+  Buffers: shared hit=1739
+  SubPlan 1
+    ->  Seq Scan on viewing_activity v  (cost=0.00..3740.01 rows=200401 width=4) (actual time=0.006..7.940 rows=200401 loops=1)
+          Buffers: shared hit=1736
 Planning:
-  Buffers: shared hit=294
-Planning Time: 1.463 ms
-Execution Time: 0.060 ms
+  Buffers: shared hit=168
+Planning Time: 0.267 ms
+Execution Time: 19.968 ms

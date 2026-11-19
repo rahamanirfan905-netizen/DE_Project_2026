@@ -1,65 +1,65 @@
 === W01 run 1 ===
-Insert on viewing_activity  (cost=0.29..8.31 rows=0 width=0) (actual time=0.297..0.298 rows=0 loops=1)
-  Buffers: shared hit=98 dirtied=1
-  ->  Index Scan using uq_episode_number on episodes  (cost=0.29..8.31 rows=1 width=91) (actual time=0.013..0.013 rows=1 loops=1)
+Insert on viewing_activity  (cost=0.29..8.31 rows=0 width=0) (actual time=1.199..1.200 rows=0 loops=1)
+  Buffers: shared hit=90 read=8 dirtied=3
+  ->  Index Scan using uq_episode_number on episodes  (cost=0.29..8.31 rows=1 width=91) (actual time=0.014..0.014 rows=1 loops=1)
         Index Cond: ((title_id = 2909) AND (season_no = 1) AND (episode_no = 5))
         Buffers: shared hit=6
 Planning:
   Buffers: shared hit=106
-Planning Time: 0.200 ms
-Trigger for constraint fk_viewing_profile: time=0.153 calls=1
-Trigger for constraint fk_viewing_title: time=0.085 calls=1
-Trigger for constraint fk_viewing_episode: time=0.042 calls=1
-Execution Time: 0.590 ms
+Planning Time: 0.195 ms
+Trigger for constraint fk_viewing_profile: time=0.814 calls=1
+Trigger for constraint fk_viewing_title: time=0.105 calls=1
+Trigger for constraint fk_viewing_episode: time=0.307 calls=1
+Execution Time: 2.653 ms
 === W01 run 2 ===
-Insert on viewing_activity  (cost=0.29..8.31 rows=0 width=0) (actual time=0.126..0.127 rows=0 loops=1)
+Insert on viewing_activity  (cost=0.29..8.31 rows=0 width=0) (actual time=0.125..0.126 rows=0 loops=1)
+  Buffers: shared hit=98 dirtied=1
+  ->  Index Scan using uq_episode_number on episodes  (cost=0.29..8.31 rows=1 width=91) (actual time=0.010..0.010 rows=1 loops=1)
+        Index Cond: ((title_id = 2909) AND (season_no = 1) AND (episode_no = 5))
+        Buffers: shared hit=6
+Planning:
+  Buffers: shared hit=106
+Planning Time: 0.182 ms
+Trigger for constraint fk_viewing_profile: time=0.154 calls=1
+Trigger for constraint fk_viewing_title: time=0.115 calls=1
+Trigger for constraint fk_viewing_episode: time=0.041 calls=1
+Execution Time: 0.449 ms
+=== W01 run 3 ===
+Insert on viewing_activity  (cost=0.29..8.31 rows=0 width=0) (actual time=0.128..0.129 rows=0 loops=1)
+  Buffers: shared hit=98 dirtied=1
+  ->  Index Scan using uq_episode_number on episodes  (cost=0.29..8.31 rows=1 width=91) (actual time=0.010..0.010 rows=1 loops=1)
+        Index Cond: ((title_id = 2909) AND (season_no = 1) AND (episode_no = 5))
+        Buffers: shared hit=6
+Planning:
+  Buffers: shared hit=106
+Planning Time: 0.164 ms
+Trigger for constraint fk_viewing_profile: time=0.168 calls=1
+Trigger for constraint fk_viewing_title: time=0.094 calls=1
+Trigger for constraint fk_viewing_episode: time=0.039 calls=1
+Execution Time: 0.442 ms
+=== W01 run 4 ===
+Insert on viewing_activity  (cost=0.29..8.31 rows=0 width=0) (actual time=0.119..0.120 rows=0 loops=1)
+  Buffers: shared hit=98 dirtied=1
+  ->  Index Scan using uq_episode_number on episodes  (cost=0.29..8.31 rows=1 width=91) (actual time=0.010..0.010 rows=1 loops=1)
+        Index Cond: ((title_id = 2909) AND (season_no = 1) AND (episode_no = 5))
+        Buffers: shared hit=6
+Planning:
+  Buffers: shared hit=106
+Planning Time: 0.163 ms
+Trigger for constraint fk_viewing_profile: time=0.131 calls=1
+Trigger for constraint fk_viewing_title: time=0.077 calls=1
+Trigger for constraint fk_viewing_episode: time=0.031 calls=1
+Execution Time: 0.370 ms
+=== W01 run 5 ===
+Insert on viewing_activity  (cost=0.29..8.31 rows=0 width=0) (actual time=0.146..0.147 rows=0 loops=1)
   Buffers: shared hit=98 dirtied=1
   ->  Index Scan using uq_episode_number on episodes  (cost=0.29..8.31 rows=1 width=91) (actual time=0.012..0.012 rows=1 loops=1)
         Index Cond: ((title_id = 2909) AND (season_no = 1) AND (episode_no = 5))
         Buffers: shared hit=6
 Planning:
   Buffers: shared hit=106
-Planning Time: 0.177 ms
-Trigger for constraint fk_viewing_profile: time=0.137 calls=1
-Trigger for constraint fk_viewing_title: time=0.083 calls=1
-Trigger for constraint fk_viewing_episode: time=0.033 calls=1
-Execution Time: 0.391 ms
-=== W01 run 3 ===
-Insert on viewing_activity  (cost=0.29..8.31 rows=0 width=0) (actual time=0.126..0.127 rows=0 loops=1)
-  Buffers: shared hit=98 dirtied=1
-  ->  Index Scan using uq_episode_number on episodes  (cost=0.29..8.31 rows=1 width=91) (actual time=0.011..0.011 rows=1 loops=1)
-        Index Cond: ((title_id = 2909) AND (season_no = 1) AND (episode_no = 5))
-        Buffers: shared hit=6
-Planning:
-  Buffers: shared hit=106
-Planning Time: 0.165 ms
-Trigger for constraint fk_viewing_profile: time=0.128 calls=1
-Trigger for constraint fk_viewing_title: time=0.080 calls=1
-Trigger for constraint fk_viewing_episode: time=0.033 calls=1
-Execution Time: 0.379 ms
-=== W01 run 4 ===
-Insert on viewing_activity  (cost=0.29..8.31 rows=0 width=0) (actual time=0.119..0.119 rows=0 loops=1)
-  Buffers: shared hit=98 dirtied=1
-  ->  Index Scan using uq_episode_number on episodes  (cost=0.29..8.31 rows=1 width=91) (actual time=0.011..0.011 rows=1 loops=1)
-        Index Cond: ((title_id = 2909) AND (season_no = 1) AND (episode_no = 5))
-        Buffers: shared hit=6
-Planning:
-  Buffers: shared hit=106
-Planning Time: 0.159 ms
-Trigger for constraint fk_viewing_profile: time=0.121 calls=1
-Trigger for constraint fk_viewing_title: time=0.077 calls=1
-Trigger for constraint fk_viewing_episode: time=0.031 calls=1
-Execution Time: 0.359 ms
-=== W01 run 5 ===
-Insert on viewing_activity  (cost=0.29..8.31 rows=0 width=0) (actual time=0.120..0.120 rows=0 loops=1)
-  Buffers: shared hit=98 dirtied=1
-  ->  Index Scan using uq_episode_number on episodes  (cost=0.29..8.31 rows=1 width=91) (actual time=0.011..0.011 rows=1 loops=1)
-        Index Cond: ((title_id = 2909) AND (season_no = 1) AND (episode_no = 5))
-        Buffers: shared hit=6
-Planning:
-  Buffers: shared hit=106
-Planning Time: 0.166 ms
-Trigger for constraint fk_viewing_profile: time=0.138 calls=1
-Trigger for constraint fk_viewing_title: time=0.080 calls=1
-Trigger for constraint fk_viewing_episode: time=0.033 calls=1
-Execution Time: 0.382 ms
+Planning Time: 0.245 ms
+Trigger for constraint fk_viewing_profile: time=0.159 calls=1
+Trigger for constraint fk_viewing_title: time=0.092 calls=1
+Trigger for constraint fk_viewing_episode: time=0.035 calls=1
+Execution Time: 0.448 ms

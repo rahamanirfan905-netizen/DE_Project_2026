@@ -123,12 +123,11 @@ GROUP BY 1
 ORDER BY 1;
 
 -- @R13
--- Content team: episodes of series 2523 that nobody has watched.
--- Correctness repair: NOT IN sees NULL movie episode IDs and returns no rows.
+-- Content team: episodes of series 2523 that nobody has watched
 SELECT e.episode_id, e.season_no, e.episode_no
 FROM episodes e
 WHERE e.title_id = 2523
-  AND NOT EXISTS (SELECT 1 FROM viewing_activity v WHERE v.episode_id = e.episode_id);
+  AND e.episode_id NOT IN (SELECT v.episode_id FROM viewing_activity v);
 
 -- @R14
 -- Compliance: kids profiles that watched titles above their maturity limit
