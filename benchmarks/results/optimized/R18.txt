@@ -1,0 +1,80 @@
+=== R18 run 1 ===
+GroupAggregate  (cost=10262.22..12266.22 rows=66800 width=45) (actual time=23.933..28.270 rows=26 loops=1)
+  Group Key: (date_trunc('month'::text, started_at)), device_type
+  Buffers: shared hit=1742, temp read=231 written=232
+  ->  Sort  (cost=10262.22..10429.22 rows=66800 width=17) (actual time=23.822..25.752 rows=66546 loops=1)
+        Sort Key: (date_trunc('month'::text, started_at)), device_type
+        Sort Method: external merge  Disk: 1848kB
+        Buffers: shared hit=1742, temp read=231 written=232
+        ->  Seq Scan on viewing_activity  (cost=0.00..4909.01 rows=66800 width=17) (actual time=7.113..15.834 rows=66546 loops=1)
+              Filter: ((started_at)::date >= '2026-01-01'::date)
+              Rows Removed by Filter: 133855
+              Buffers: shared hit=1736
+Planning:
+  Buffers: shared hit=150
+Planning Time: 0.233 ms
+Execution Time: 29.061 ms
+=== R18 run 2 ===
+GroupAggregate  (cost=10262.22..12266.22 rows=66800 width=45) (actual time=23.778..27.828 rows=26 loops=1)
+  Group Key: (date_trunc('month'::text, started_at)), device_type
+  Buffers: shared hit=1742, temp read=231 written=232
+  ->  Sort  (cost=10262.22..10429.22 rows=66800 width=17) (actual time=23.681..25.566 rows=66546 loops=1)
+        Sort Key: (date_trunc('month'::text, started_at)), device_type
+        Sort Method: external merge  Disk: 1848kB
+        Buffers: shared hit=1742, temp read=231 written=232
+        ->  Seq Scan on viewing_activity  (cost=0.00..4909.01 rows=66800 width=17) (actual time=7.324..16.320 rows=66546 loops=1)
+              Filter: ((started_at)::date >= '2026-01-01'::date)
+              Rows Removed by Filter: 133855
+              Buffers: shared hit=1736
+Planning:
+  Buffers: shared hit=150
+Planning Time: 0.316 ms
+Execution Time: 28.578 ms
+=== R18 run 3 ===
+GroupAggregate  (cost=10262.22..12266.22 rows=66800 width=45) (actual time=23.036..27.316 rows=26 loops=1)
+  Group Key: (date_trunc('month'::text, started_at)), device_type
+  Buffers: shared hit=1742, temp read=231 written=232
+  ->  Sort  (cost=10262.22..10429.22 rows=66800 width=17) (actual time=22.937..24.926 rows=66546 loops=1)
+        Sort Key: (date_trunc('month'::text, started_at)), device_type
+        Sort Method: external merge  Disk: 1848kB
+        Buffers: shared hit=1742, temp read=231 written=232
+        ->  Seq Scan on viewing_activity  (cost=0.00..4909.01 rows=66800 width=17) (actual time=7.156..15.753 rows=66546 loops=1)
+              Filter: ((started_at)::date >= '2026-01-01'::date)
+              Rows Removed by Filter: 133855
+              Buffers: shared hit=1736
+Planning:
+  Buffers: shared hit=150
+Planning Time: 0.250 ms
+Execution Time: 28.001 ms
+=== R18 run 4 ===
+GroupAggregate  (cost=10262.22..12266.22 rows=66800 width=45) (actual time=23.700..27.767 rows=26 loops=1)
+  Group Key: (date_trunc('month'::text, started_at)), device_type
+  Buffers: shared hit=1742, temp read=231 written=232
+  ->  Sort  (cost=10262.22..10429.22 rows=66800 width=17) (actual time=23.596..25.474 rows=66546 loops=1)
+        Sort Key: (date_trunc('month'::text, started_at)), device_type
+        Sort Method: external merge  Disk: 1848kB
+        Buffers: shared hit=1742, temp read=231 written=232
+        ->  Seq Scan on viewing_activity  (cost=0.00..4909.01 rows=66800 width=17) (actual time=7.487..16.165 rows=66546 loops=1)
+              Filter: ((started_at)::date >= '2026-01-01'::date)
+              Rows Removed by Filter: 133855
+              Buffers: shared hit=1736
+Planning:
+  Buffers: shared hit=150
+Planning Time: 0.215 ms
+Execution Time: 28.198 ms
+=== R18 run 5 ===
+GroupAggregate  (cost=10262.22..12266.22 rows=66800 width=45) (actual time=29.774..33.882 rows=26 loops=1)
+  Group Key: (date_trunc('month'::text, started_at)), device_type
+  Buffers: shared hit=1742, temp read=231 written=232
+  ->  Sort  (cost=10262.22..10429.22 rows=66800 width=17) (actual time=29.677..31.600 rows=66546 loops=1)
+        Sort Key: (date_trunc('month'::text, started_at)), device_type
+        Sort Method: external merge  Disk: 1848kB
+        Buffers: shared hit=1742, temp read=231 written=232
+        ->  Seq Scan on viewing_activity  (cost=0.00..4909.01 rows=66800 width=17) (actual time=7.062..15.552 rows=66546 loops=1)
+              Filter: ((started_at)::date >= '2026-01-01'::date)
+              Rows Removed by Filter: 133855
+              Buffers: shared hit=1736
+Planning:
+  Buffers: shared hit=150
+Planning Time: 0.269 ms
+Execution Time: 34.316 ms

@@ -1,0 +1,31 @@
+query_id,type,avg_ms,median_ms,min_ms,max_ms,scan_nodes
+R01,READ,1.053,0.035,0.032,5.122,Index Scan using viewing_unfinished_profile_title_time_idx on viewing_activity | Index Scan using titles_pkey on titles
+R02,READ,0.188,0.037,0.034,0.795,Index Scan using uq_episode_number on episodes
+R03,READ,0.564,0.478,0.454,0.949,Index Scan using viewing_started_at_desc_idx on viewing_activity | Seq Scan on titles
+R04,READ,0.411,0.336,0.305,0.735,Seq Scan on titles | Seq Scan on genres | Index Only Scan using title_genres_genre_title_idx on title_genres
+R05,READ,0.458,0.452,0.420,0.505,Seq Scan on titles
+R06,READ,0.250,0.054,0.047,1.042,Index Scan using my_list_pkey on my_list | Index Scan using titles_pkey on titles
+R07,READ,0.027,0.020,0.020,0.053,Index Scan using uq_episode_number on episodes
+R08,READ,2.416,1.663,1.630,5.290,Index Scan using viewing_started_at_desc_idx on viewing_activity
+R09,READ,31.349,23.629,23.536,61.809,Seq Scan on viewing_activity | Seq Scan on title_genres | Seq Scan on genres
+R10,READ,0.091,0.022,0.019,0.374,Index Scan using accounts_lower_email_idx on accounts
+R11,READ,3.850,2.843,2.786,7.945,Seq Scan on accounts | Index Scan using invoices_failed_period_account_idx on invoices
+R12,READ,1.565,1.547,1.539,1.642,Seq Scan on accounts
+R13,READ,0.060,0.059,0.054,0.068,Index Scan using uq_episode_number on episodes | Index Only Scan using viewing_episode_present_idx on viewing_activity
+R14,READ,24.328,22.733,21.137,32.612,Seq Scan on viewing_activity | Seq Scan on profiles | Seq Scan on titles
+R15,READ,4.142,4.166,4.025,4.181,Seq Scan on accounts | Seq Scan on plans
+R16,READ,125.824,125.336,123.673,130.489,Seq Scan on viewing_activity | Seq Scan on profiles | Seq Scan on accounts | Seq Scan on plans
+R17,READ,6.039,4.985,4.907,10.209,Seq Scan on ratings | Seq Scan on titles
+R18,READ,29.631,28.578,28.001,34.316,Seq Scan on viewing_activity
+R19,READ,11.748,11.460,11.413,12.680,Seq Scan on viewing_activity | Seq Scan on titles
+R20,READ,1.148,1.149,1.085,1.206,Index Only Scan using my_list_added_title_idx on my_list | Seq Scan on titles
+R21,READ,1.354,1.338,1.300,1.448,Seq Scan on accounts
+R22,READ,0.173,0.173,0.168,0.179,Seq Scan on titles
+R23,READ,13.204,12.527,12.212,16.161,Index Scan using viewing_started_at_desc_idx on viewing_activity
+R24,READ,0.091,0.024,0.023,0.359,Index Scan using profiles_account_created_idx on profiles
+R25,READ,0.514,0.357,0.342,1.122,Index Only Scan using title_genres_pkey on title_genres | Index Only Scan using title_genres_genre_title_idx on title_genres
+W01,WRITE,0.420,0.382,0.359,0.590,Index Scan using uq_episode_number on episodes
+W02,WRITE,0.404,0.402,0.361,0.456,(no scan)
+W03,WRITE,0.284,0.177,0.161,0.728,Seq Scan on plans | Index Scan using accounts_pkey on accounts
+W04,WRITE,64.577,66.002,58.037,68.705,Seq Scan on accounts | Seq Scan on plans
+W05,WRITE,7.501,6.823,6.226,10.709,Seq Scan on accounts | Index Scan using invoices_failed_period_account_idx on invoices

@@ -1,0 +1,75 @@
+=== R01 run 1 ===
+Unique  (cost=0.70..29.06 rows=2 width=45) (actual time=3.196..3.201 rows=1 loops=1)
+  Buffers: shared hit=13
+  ->  Nested Loop  (cost=0.70..29.05 rows=2 width=45) (actual time=3.194..3.197 rows=1 loops=1)
+        Buffers: shared hit=13
+        ->  Index Scan using viewing_unfinished_profile_title_time_idx on viewing_activity v  (cost=0.42..12.45 rows=2 width=20) (actual time=2.354..2.357 rows=1 loops=1)
+              Index Cond: (profile_id = 7043)
+              Buffers: shared hit=10
+        ->  Index Scan using titles_pkey on titles t  (cost=0.28..8.30 rows=1 width=29) (actual time=0.837..0.837 rows=1 loops=1)
+              Index Cond: (title_id = v.title_id)
+              Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=201
+Planning Time: 55.623 ms
+Execution Time: 5.122 ms
+=== R01 run 2 ===
+Unique  (cost=0.70..29.06 rows=2 width=45) (actual time=0.011..0.012 rows=1 loops=1)
+  Buffers: shared hit=7
+  ->  Nested Loop  (cost=0.70..29.05 rows=2 width=45) (actual time=0.010..0.010 rows=1 loops=1)
+        Buffers: shared hit=7
+        ->  Index Scan using viewing_unfinished_profile_title_time_idx on viewing_activity v  (cost=0.42..12.45 rows=2 width=20) (actual time=0.006..0.006 rows=1 loops=1)
+              Index Cond: (profile_id = 7043)
+              Buffers: shared hit=4
+        ->  Index Scan using titles_pkey on titles t  (cost=0.28..8.30 rows=1 width=29) (actual time=0.003..0.003 rows=1 loops=1)
+              Index Cond: (title_id = v.title_id)
+              Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=200
+Planning Time: 0.342 ms
+Execution Time: 0.032 ms
+=== R01 run 3 ===
+Unique  (cost=0.70..29.06 rows=2 width=45) (actual time=0.015..0.016 rows=1 loops=1)
+  Buffers: shared hit=7
+  ->  Nested Loop  (cost=0.70..29.05 rows=2 width=45) (actual time=0.014..0.014 rows=1 loops=1)
+        Buffers: shared hit=7
+        ->  Index Scan using viewing_unfinished_profile_title_time_idx on viewing_activity v  (cost=0.42..12.45 rows=2 width=20) (actual time=0.009..0.009 rows=1 loops=1)
+              Index Cond: (profile_id = 7043)
+              Buffers: shared hit=4
+        ->  Index Scan using titles_pkey on titles t  (cost=0.28..8.30 rows=1 width=29) (actual time=0.004..0.004 rows=1 loops=1)
+              Index Cond: (title_id = v.title_id)
+              Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=200
+Planning Time: 2.030 ms
+Execution Time: 0.041 ms
+=== R01 run 4 ===
+Unique  (cost=0.70..29.06 rows=2 width=45) (actual time=0.011..0.012 rows=1 loops=1)
+  Buffers: shared hit=7
+  ->  Nested Loop  (cost=0.70..29.05 rows=2 width=45) (actual time=0.010..0.010 rows=1 loops=1)
+        Buffers: shared hit=7
+        ->  Index Scan using viewing_unfinished_profile_title_time_idx on viewing_activity v  (cost=0.42..12.45 rows=2 width=20) (actual time=0.006..0.007 rows=1 loops=1)
+              Index Cond: (profile_id = 7043)
+              Buffers: shared hit=4
+        ->  Index Scan using titles_pkey on titles t  (cost=0.28..8.30 rows=1 width=29) (actual time=0.002..0.002 rows=1 loops=1)
+              Index Cond: (title_id = v.title_id)
+              Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=200
+Planning Time: 0.337 ms
+Execution Time: 0.034 ms
+=== R01 run 5 ===
+Unique  (cost=0.70..29.06 rows=2 width=45) (actual time=0.013..0.015 rows=1 loops=1)
+  Buffers: shared hit=7
+  ->  Nested Loop  (cost=0.70..29.05 rows=2 width=45) (actual time=0.013..0.013 rows=1 loops=1)
+        Buffers: shared hit=7
+        ->  Index Scan using viewing_unfinished_profile_title_time_idx on viewing_activity v  (cost=0.42..12.45 rows=2 width=20) (actual time=0.008..0.008 rows=1 loops=1)
+              Index Cond: (profile_id = 7043)
+              Buffers: shared hit=4
+        ->  Index Scan using titles_pkey on titles t  (cost=0.28..8.30 rows=1 width=29) (actual time=0.003..0.003 rows=1 loops=1)
+              Index Cond: (title_id = v.title_id)
+              Buffers: shared hit=3
+Planning:
+  Buffers: shared hit=200
+Planning Time: 0.320 ms
+Execution Time: 0.035 ms

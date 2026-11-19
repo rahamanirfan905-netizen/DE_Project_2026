@@ -1,0 +1,155 @@
+=== R14 run 1 ===
+Sort  (cost=6502.63..6524.75 rows=8849 width=22) (actual time=32.358..32.474 rows=6714 loops=1)
+  Sort Key: v.started_at DESC
+  Sort Method: quicksort  Memory: 509kB
+  Buffers: shared hit=2438
+  ->  Hash Join  (cost=1586.69..5922.52 rows=8849 width=22) (actual time=14.576..31.780 rows=6714 loops=1)
+        Hash Cond: (v.title_id = t.title_id)
+        Join Filter: (array_position('{U,UA7,UA13,UA16,A}'::text[], (t.maturity_rating)::text) > array_position('{U,UA7,UA13,UA16,A}'::text[], (p.maturity_limit)::text))
+        Rows Removed by Join Filter: 19679
+        Buffers: shared hit=2435
+        ->  Hash Join  (cost=1482.19..5748.28 rows=26546 width=19) (actual time=14.190..27.860 rows=26393 loops=1)
+              Hash Cond: (v.profile_id = p.profile_id)
+              Buffers: shared hit=2344
+              ->  Seq Scan on viewing_activity v  (cost=0.00..3740.01 rows=200401 width=16) (actual time=0.002..5.221 rows=200401 loops=1)
+                    Buffers: shared hit=1736
+              ->  Hash  (cost=1358.00..1358.00 rows=9935 width=7) (actual time=14.174..14.174 rows=10000 loops=1)
+                    Buckets: 16384  Batches: 1  Memory Usage: 509kB
+                    Buffers: shared hit=608
+                    ->  Seq Scan on profiles p  (cost=0.00..1358.00 rows=9935 width=7) (actual time=0.271..13.681 rows=10000 loops=1)
+                          Filter: is_kids
+                          Rows Removed by Filter: 65000
+                          Buffers: shared hit=608
+        ->  Hash  (cost=67.00..67.00 rows=3000 width=7) (actual time=0.278..0.279 rows=3000 loops=1)
+              Buckets: 4096  Batches: 1  Memory Usage: 149kB
+              Buffers: shared hit=37
+              ->  Seq Scan on titles t  (cost=0.00..67.00 rows=3000 width=7) (actual time=0.005..0.145 rows=3000 loops=1)
+                    Buffers: shared hit=37
+Planning:
+  Buffers: shared hit=310
+Planning Time: 1.030 ms
+Execution Time: 32.612 ms
+=== R14 run 2 ===
+Sort  (cost=6502.63..6524.75 rows=8849 width=22) (actual time=23.209..23.337 rows=6714 loops=1)
+  Sort Key: v.started_at DESC
+  Sort Method: quicksort  Memory: 509kB
+  Buffers: shared hit=2438
+  ->  Hash Join  (cost=1586.69..5922.52 rows=8849 width=22) (actual time=3.558..22.603 rows=6714 loops=1)
+        Hash Cond: (v.title_id = t.title_id)
+        Join Filter: (array_position('{U,UA7,UA13,UA16,A}'::text[], (t.maturity_rating)::text) > array_position('{U,UA7,UA13,UA16,A}'::text[], (p.maturity_limit)::text))
+        Rows Removed by Join Filter: 19679
+        Buffers: shared hit=2435
+        ->  Hash Join  (cost=1482.19..5748.28 rows=26546 width=19) (actual time=3.136..18.348 rows=26393 loops=1)
+              Hash Cond: (v.profile_id = p.profile_id)
+              Buffers: shared hit=2344
+              ->  Seq Scan on viewing_activity v  (cost=0.00..3740.01 rows=200401 width=16) (actual time=0.003..5.665 rows=200401 loops=1)
+                    Buffers: shared hit=1736
+              ->  Hash  (cost=1358.00..1358.00 rows=9935 width=7) (actual time=3.120..3.120 rows=10000 loops=1)
+                    Buckets: 16384  Batches: 1  Memory Usage: 509kB
+                    Buffers: shared hit=608
+                    ->  Seq Scan on profiles p  (cost=0.00..1358.00 rows=9935 width=7) (actual time=0.003..2.566 rows=10000 loops=1)
+                          Filter: is_kids
+                          Rows Removed by Filter: 65000
+                          Buffers: shared hit=608
+        ->  Hash  (cost=67.00..67.00 rows=3000 width=7) (actual time=0.357..0.358 rows=3000 loops=1)
+              Buckets: 4096  Batches: 1  Memory Usage: 149kB
+              Buffers: shared hit=37
+              ->  Seq Scan on titles t  (cost=0.00..67.00 rows=3000 width=7) (actual time=0.004..0.168 rows=3000 loops=1)
+                    Buffers: shared hit=37
+Planning:
+  Buffers: shared hit=310
+Planning Time: 0.559 ms
+Execution Time: 23.487 ms
+=== R14 run 3 ===
+Sort  (cost=6502.63..6524.75 rows=8849 width=22) (actual time=22.437..22.564 rows=6714 loops=1)
+  Sort Key: v.started_at DESC
+  Sort Method: quicksort  Memory: 509kB
+  Buffers: shared hit=2438
+  ->  Hash Join  (cost=1586.69..5922.52 rows=8849 width=22) (actual time=3.380..21.855 rows=6714 loops=1)
+        Hash Cond: (v.title_id = t.title_id)
+        Join Filter: (array_position('{U,UA7,UA13,UA16,A}'::text[], (t.maturity_rating)::text) > array_position('{U,UA7,UA13,UA16,A}'::text[], (p.maturity_limit)::text))
+        Rows Removed by Join Filter: 19679
+        Buffers: shared hit=2435
+        ->  Hash Join  (cost=1482.19..5748.28 rows=26546 width=19) (actual time=2.994..17.784 rows=26393 loops=1)
+              Hash Cond: (v.profile_id = p.profile_id)
+              Buffers: shared hit=2344
+              ->  Seq Scan on viewing_activity v  (cost=0.00..3740.01 rows=200401 width=16) (actual time=0.002..5.438 rows=200401 loops=1)
+                    Buffers: shared hit=1736
+              ->  Hash  (cost=1358.00..1358.00 rows=9935 width=7) (actual time=2.970..2.971 rows=10000 loops=1)
+                    Buckets: 16384  Batches: 1  Memory Usage: 509kB
+                    Buffers: shared hit=608
+                    ->  Seq Scan on profiles p  (cost=0.00..1358.00 rows=9935 width=7) (actual time=0.003..2.482 rows=10000 loops=1)
+                          Filter: is_kids
+                          Rows Removed by Filter: 65000
+                          Buffers: shared hit=608
+        ->  Hash  (cost=67.00..67.00 rows=3000 width=7) (actual time=0.322..0.323 rows=3000 loops=1)
+              Buckets: 4096  Batches: 1  Memory Usage: 149kB
+              Buffers: shared hit=37
+              ->  Seq Scan on titles t  (cost=0.00..67.00 rows=3000 width=7) (actual time=0.003..0.172 rows=3000 loops=1)
+                    Buffers: shared hit=37
+Planning:
+  Buffers: shared hit=310
+Planning Time: 0.492 ms
+Execution Time: 22.733 ms
+=== R14 run 4 ===
+Sort  (cost=6502.63..6524.75 rows=8849 width=22) (actual time=20.879..20.996 rows=6714 loops=1)
+  Sort Key: v.started_at DESC
+  Sort Method: quicksort  Memory: 509kB
+  Buffers: shared hit=2438
+  ->  Hash Join  (cost=1586.69..5922.52 rows=8849 width=22) (actual time=2.921..20.310 rows=6714 loops=1)
+        Hash Cond: (v.title_id = t.title_id)
+        Join Filter: (array_position('{U,UA7,UA13,UA16,A}'::text[], (t.maturity_rating)::text) > array_position('{U,UA7,UA13,UA16,A}'::text[], (p.maturity_limit)::text))
+        Rows Removed by Join Filter: 19679
+        Buffers: shared hit=2435
+        ->  Hash Join  (cost=1482.19..5748.28 rows=26546 width=19) (actual time=2.625..16.529 rows=26393 loops=1)
+              Hash Cond: (v.profile_id = p.profile_id)
+              Buffers: shared hit=2344
+              ->  Seq Scan on viewing_activity v  (cost=0.00..3740.01 rows=200401 width=16) (actual time=0.002..5.236 rows=200401 loops=1)
+                    Buffers: shared hit=1736
+              ->  Hash  (cost=1358.00..1358.00 rows=9935 width=7) (actual time=2.614..2.614 rows=10000 loops=1)
+                    Buckets: 16384  Batches: 1  Memory Usage: 509kB
+                    Buffers: shared hit=608
+                    ->  Seq Scan on profiles p  (cost=0.00..1358.00 rows=9935 width=7) (actual time=0.002..2.177 rows=10000 loops=1)
+                          Filter: is_kids
+                          Rows Removed by Filter: 65000
+                          Buffers: shared hit=608
+        ->  Hash  (cost=67.00..67.00 rows=3000 width=7) (actual time=0.264..0.264 rows=3000 loops=1)
+              Buckets: 4096  Batches: 1  Memory Usage: 149kB
+              Buffers: shared hit=37
+              ->  Seq Scan on titles t  (cost=0.00..67.00 rows=3000 width=7) (actual time=0.003..0.143 rows=3000 loops=1)
+                    Buffers: shared hit=37
+Planning:
+  Buffers: shared hit=310
+Planning Time: 0.436 ms
+Execution Time: 21.137 ms
+=== R14 run 5 ===
+Sort  (cost=6502.63..6524.75 rows=8849 width=22) (actual time=21.434..21.542 rows=6714 loops=1)
+  Sort Key: v.started_at DESC
+  Sort Method: quicksort  Memory: 509kB
+  Buffers: shared hit=2438
+  ->  Hash Join  (cost=1586.69..5922.52 rows=8849 width=22) (actual time=3.031..20.858 rows=6714 loops=1)
+        Hash Cond: (v.title_id = t.title_id)
+        Join Filter: (array_position('{U,UA7,UA13,UA16,A}'::text[], (t.maturity_rating)::text) > array_position('{U,UA7,UA13,UA16,A}'::text[], (p.maturity_limit)::text))
+        Rows Removed by Join Filter: 19679
+        Buffers: shared hit=2435
+        ->  Hash Join  (cost=1482.19..5748.28 rows=26546 width=19) (actual time=2.678..16.982 rows=26393 loops=1)
+              Hash Cond: (v.profile_id = p.profile_id)
+              Buffers: shared hit=2344
+              ->  Seq Scan on viewing_activity v  (cost=0.00..3740.01 rows=200401 width=16) (actual time=0.003..5.142 rows=200401 loops=1)
+                    Buffers: shared hit=1736
+              ->  Hash  (cost=1358.00..1358.00 rows=9935 width=7) (actual time=2.663..2.663 rows=10000 loops=1)
+                    Buckets: 16384  Batches: 1  Memory Usage: 509kB
+                    Buffers: shared hit=608
+                    ->  Seq Scan on profiles p  (cost=0.00..1358.00 rows=9935 width=7) (actual time=0.003..2.201 rows=10000 loops=1)
+                          Filter: is_kids
+                          Rows Removed by Filter: 65000
+                          Buffers: shared hit=608
+        ->  Hash  (cost=67.00..67.00 rows=3000 width=7) (actual time=0.315..0.315 rows=3000 loops=1)
+              Buckets: 4096  Batches: 1  Memory Usage: 149kB
+              Buffers: shared hit=37
+              ->  Seq Scan on titles t  (cost=0.00..67.00 rows=3000 width=7) (actual time=0.003..0.163 rows=3000 loops=1)
+                    Buffers: shared hit=37
+Planning:
+  Buffers: shared hit=310
+Planning Time: 0.448 ms
+Execution Time: 21.670 ms
