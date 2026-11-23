@@ -1,0 +1,3 @@
+query_id,type,avg_ms,median_ms,min_ms,max_ms,scan_nodes
+PARTITION_JUNE_ORIGINAL,READ,99.588,99.152,96.584,103.462,Parallel Seq Scan on viewing_activity
+PARTITION_JUNE_PARTITIONED,READ,31.636,31.311,25.046,38.551,Parallel Seq Scan on viewing_activity_p_2026_06

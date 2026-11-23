@@ -137,12 +137,12 @@ The viewing_activity table occupies the most
 storage and is the primary candidate for
 date-based partitioning.
 
-### 8. Handover to Partitioning Phase
+### 8. Transition to Partitioning Analysis
 
 The large database has been created and verified.
 
-The following information is available for
-the next phase:
+The following information was used for
+the partitioning analysis:
 
 - Database: netflix_large
 - Total records: 11,124,198
@@ -151,9 +151,93 @@ the next phase:
 - Last viewing date: 2026-07-01
 - Database size: 1004 MB
 
-The next phase will implement RANGE partitioning
-on viewing_activity.started_at, demonstrate
-partition pruning and perform large-dataset
-benchmarking.
+The partitioning and scalability analysis is documented
+in Part 2 below.
 
-This phase will be completed by Jatin.
+## Part 2 – Partitioning and Performance Analysis
+
+## 1. Objective
+
+The objective of this experiment is to evaluate how date-based partitioning improves query performance on a large Netflix streaming dataset. We compare the original viewing_activity table with a partitioned version using a date-range query.
+
+## 2. Dataset Scale
+
+The experiment was conducted using the large dataset in PostgreSQL.
+
+| Table | Rows |
+|---|---:|
+| accounts | 500,000 |
+| profiles | 1,500,000 |
+| titles | 60,000 |
+| episodes | 400,000 |
+| viewing_activity | 4,012,819 |
+| ratings | 674,605 |
+| my_list | 1,199,989 |
+| invoices | 2,657,600 |
+
+The dataset contains approximately 11.12 million rows across the listed tables and other supporting tables.
+
+## 3. Partitioning Strategy
+
+The viewing_activity table was partitioned using RANGE partitioning on the started_at column.
+
+A separate partitioned table named viewing_activity_partitioned was created to preserve the original table for comparison.
+
+Monthly partitions were created from January 2025 through July 2026, allowing PostgreSQL to eliminate partitions that do not match the query date range.
+
+The partitioned table uses a composite primary key consisting of view_id and started_at.
+## 4. Partition Pruning Verification
+
+Partition pruning was tested using a date-range query to retrieve viewing activity records from June 2026.
+
+```sql
+EXPLAIN (ANALYZE, BUFFERS)
+SELECT COUNT(*)
+FROM netflix.viewing_activity_partitioned
+WHERE started_at >= '2026-06-01'
+  AND started_at < '2026-07-01';
+```
+
+The execution plan showed that PostgreSQL accessed the June 2026 partition instead of scanning all monthly partitions. This confirmed successful partition pruning for the selected date range.
+
+## 5. Benchmark Results
+
+The query was executed multiple times on both the original and partitioned tables.
+
+| Table | Runs | Average Execution Time |
+|---|---:|---:|
+| Original viewing_activity | 4 | 99.588 ms |
+| Partitioned viewing_activity | 3 | 31.636 ms |
+
+The partitioned table achieved a lower average execution time for the selected date-range query.
+
+## 6. Performance Analysis
+
+The average execution time decreased from 99.588 ms to 31.636 ms.
+
+- Original average: 99.588 ms
+- Partitioned average: 31.636 ms
+- Execution time reduction: approximately 68.23%
+- Speedup: approximately 3.15×
+
+The original execution plan showed a Parallel Seq Scan on the original viewing_activity table. It also removed 1,264,325 rows through the date filter.
+
+The partitioned execution plan showed a Parallel Seq Scan on the June 2026 partition (viewing_activity_p_2026_06). PostgreSQL therefore avoided scanning irrelevant monthly partitions.
+
+## 7. Observations and Limitations
+
+- Monthly range partitioning was effective for date-based queries.
+- Partition pruning reduced the data scanned for the selected month.
+- The experiment used a large dataset containing approximately 4 million viewing activity records.
+- The original table was measured four times, while the partitioned table was measured three times.
+- Execution times can vary due to caching, database load, and system resources.
+- This was a targeted date-range experiment and not a complete evaluation of all 30 workload queries.
+
+## 8. Conclusion
+
+The experiment demonstrates that monthly range partitioning can improve the performance of date-based queries on large datasets.
+
+For the June 2026 query, the partitioned table achieved an average execution time of 31.636 ms compared with 99.588 ms on the original table. PostgreSQL successfully pruned irrelevant partitions and scanned only the relevant monthly partition.
+
+Partitioning is therefore a useful scalability technique for large time-based datasets such as streaming activity logs, particularly when queries frequently filter records by date.
+
